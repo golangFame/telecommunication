@@ -2,12 +2,14 @@ package main
 
 import (
 	"io"
+	"log"
 	"net/http"
 	"os"
 	"telecommunication/handlers"
 	"telecommunication/middlewares"
 
 	"github.com/gin-gonic/gin"
+	"github.com/joho/godotenv"
 	gindump "github.com/tpkeeper/gin-dump"
 )
 
@@ -17,7 +19,10 @@ func setupLogOutput() {
 }
 
 func main() {
-
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatalf("Some error occured. Err: %s", err)
+	}
 	setupLogOutput()
 	router := gin.New()
 
@@ -32,6 +37,7 @@ func main() {
 	router.GET("/", handlers.Home)
 	router.GET("/dummy", handlers.Dummy)
 	router.POST("/login", handlers.Login)
+	router.POST("/sms", handlers.SMS)
 
 	routesWithBasicAuth.GET("/", func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{

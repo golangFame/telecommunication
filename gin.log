@@ -5,11 +5,10 @@
 [GIN-debug] GET    /                         --> telecommunication/handlers.Home (4 handlers)
 [GIN-debug] GET    /dummy                    --> telecommunication/handlers.Dummy (4 handlers)
 [GIN-debug] POST   /login                    --> telecommunication/handlers.Login (4 handlers)
+[GIN-debug] POST   /sms                      --> telecommunication/handlers.SMS (4 handlers)
 [GIN-debug] GET    /basicauth/               --> main.main.func1 (5 handlers)
 [GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
 Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
 [GIN-debug] Listening and serving HTTP on :8080
-49.15.138.133 - [10 Jun 22 09:03 UTC] GET %!d(string=/) %!s(int=200) 
-%!(EXTRA time.Duration=296.34µs)[GIN-debug] redirecting request 301: /basicauth/ --> /basicauth/
-49.15.138.133 - [10 Jun 22 09:04 UTC] GET %!d(string=/basicauth/) %!s(int=200) 
-%!(EXTRA time.Duration=199.929µs)
+::1 - [13 Jun 22 15:24 IST] POST %!d(string=/sms) %!s(int=200) 
+%!(EXTRA time.Duration=81.393583ms)
